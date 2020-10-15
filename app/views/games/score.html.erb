@@ -1,0 +1,14 @@
+<h1>Your Results</h1>
+
+<% if params[:word].blank? %>
+<p>You haven't put anything!</p>
+<% elsif !@letters_included %>
+  <p><strong><%= params[:word] %></strong>You have used letters that are not included in the original grid</p>
+<% elsif !@valid_english_word %>
+  <p>The word <strong><%= params[:word] %></strong>is not a valid English word</p>
+<% else %>
+  <p>Congrats! You got <%= @score %> points with <strong><%= params[:word] %></strong></p>
+  <p>You have a total of: <%= session[:score] %> points</p>
+<% end %>
+<%= link_to 'Play again', new_path %>
+
