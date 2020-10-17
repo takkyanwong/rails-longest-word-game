@@ -9,6 +9,10 @@ class GamesController < ApplicationController
     @letters.shuffle!
   end
 
+  def reshuffle
+    @letters.shuffle!
+  end
+
   def score
     @guess = params[:word].downcase.split(//)
     @letters = params[:letters].split(' ')
@@ -18,6 +22,11 @@ class GamesController < ApplicationController
     @valid_english_word = english_word?(params[:word])
 
     @score = update_score(@valid_english_word, @letters_included, params[:word])
+  end
+
+  def reset_score
+    session[:score] = nil
+    redirect_to :new
   end
 
   def included?(letters, word)
