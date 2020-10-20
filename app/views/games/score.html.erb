@@ -7,10 +7,14 @@
 <% elsif !@valid_english_word %>
   <p>The word <strong><%= params[:word] %></strong>is not a valid English word</p>
 <% else %>
-  <p>Congrats! You got <%= @score %> points with <strong><%= params[:word] %></strong></p>
+  <p>Congrats! You got <%= @score %> points with <span><%= params[:word] %></span></p>
   <p>You have a total of: <%= session[:score] %> points</p>
 <% end %>
 
-<%= link_to 'Play again', new_path %>
-<%= link_to 'Reset score', reset_score_path %>
+<%= link_to new_game_path, class: 'btn btn-success' do %>
+Play Again!
+<% end %>
+<%= link_to reset_score_path, class: 'btn btn-danger' do%>
+Reset Score
+<% end %>
 <% # link_to 'displayed message', method_name_in_routes_path %>

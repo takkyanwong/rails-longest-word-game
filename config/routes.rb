@@ -1,6 +1,6 @@
 Rails.application.routes.draw do
   # For details on the DSL available within this file, see https://guides.rubyonrails.org/routing.html
-  get 'new', to: 'games#new'
+  get 'new', to: 'games#new', as: :new_game
   post 'score', to: 'games#score'
   get 'reset_score', to: 'games#reset_score'
   get 'reshuffle', to: 'games#reshuffle'

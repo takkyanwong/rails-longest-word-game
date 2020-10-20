@@ -7,11 +7,11 @@
     <%= hidden_field_tag :authenticity_token, form_authenticity_token %>
     <%= hidden_field_tag :letters, @letters %>
     <input type="text" name="word" placeholder="Form the longest word">
-    <input type="submit" value="play">
+    <input type="submit" class="btn btn-primary" value="play">
   </form>
 </div>
 <div style="float: left;">
   <form>
-    <input type="submit" value="<% link_to 'Reshuffle', to: reshuffle_path %>Reshuffle">
+    <input type="submit" class="btn btn-warning" value="<% link_to 'Reshuffle', to: reshuffle_path %>Reshuffle">
   </form>
 </div>

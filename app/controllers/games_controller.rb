@@ -5,7 +5,7 @@ class GamesController < ApplicationController
   VOWELS = %w[a e i o u].freeze
   def new
     @letters = Array.new(5) { VOWELS.sample }
-    @letters += Array.new(5) { (('a'..'z').to_a - VOWELS).sample }
+    @letters += Array.new(8) { (('a'..'z').to_a - VOWELS).sample }
     @letters.shuffle!
   end
 
@@ -26,7 +26,7 @@ class GamesController < ApplicationController
 
   def reset_score
     session[:score] = nil
-    redirect_to :new
+    redirect_to :new_game
   end
 
   def included?(letters, word)
